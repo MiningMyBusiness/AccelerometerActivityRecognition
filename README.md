@@ -30,10 +30,14 @@ For more information about the data please visit the [repository](https://archiv
 Using the raw data for each activity, I performed the following processing and machine learning tasks
 
 1) split the data into 5 second time windows - 160 time points by 3 axes for a total of 4954 time windows each with a label - with 2 seconds of overlap 
+
 2) normalize the data so it ranges between 0-1. 
+
 3) built a deep 1D-convolutional encoder-decoder neural net that compresses the 160 by 3 dimensional data into 128 latent dimensions
 and then reconstructs the original signal of 160 by 3 dims. After 30 epochs of training, the autoencoder could reconstruct each of the original signal axes with the following average R-squared values on a validation test set (0.91, 0.76, 0.86) - one R-squared value for each axis.
+
 4) built a classifier using the encoder from the encoder-decoder network with the addition of two densely connected layers for classification of the activity. The weights of the encoder were frozen and only the two densely connected layers were allowed to learn for 15 epochs.
+
 5) the weights of the last two layers of the encoder were unfrozen and were allowed to be trained for 15 epochs with a slow learning rate.
 
 The classifier has a final softmax layer which provides a probability that the specific time window belongs to one of the activities listed above. Refer to the [code](https://github.com/MiningMyBusiness/AccelerometerActivityRecognition/blob/master/ClassifyActivity.py) for more details. 
