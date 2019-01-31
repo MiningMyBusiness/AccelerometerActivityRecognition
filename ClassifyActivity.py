@@ -289,5 +289,5 @@ plt.yticks(np.arange(num_classes),
             rotation=0)
 plt.title('Confusion matrix')
 plt.tight_layout()
-plt.savefig('ConfusionMatrix.png')
+plt.savefig('Figures/ConfusionMatrix.png')
 plt.close()
