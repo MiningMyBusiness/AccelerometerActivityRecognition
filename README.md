@@ -43,7 +43,7 @@ and then reconstructs the original signal of 160 by 3 dims. After 60 epochs of t
 The classifier has a final softmax layer which provides a probability that the specific time window belongs to one of the activities listed above. Refer to the [code](https://github.com/MiningMyBusiness/AccelerometerActivityRecognition/blob/master/ClassifyActivity.py) for more details. 
 
 ## The results and conclusions
-If we only pick the activity the classifier attributes the highest probability to, then the classifier has an overal accuracy of 70.1%. However, if we pick the three activities with the highest probabilities to see if the actual activity is within those three, then the classifier achieves 92.1% overall accuracy.
+If we only pick the activity the classifier attributes the highest probability to, then the classifier has an overal accuracy of 70.1%. However, the actual activity is within the three activities predicted with the highest probability by the classifier 92.1% of the time.
 
 Below is the confusion matrix for the classifier when the activity with the highest probability is picked.
 
