@@ -66,4 +66,4 @@ There are 3 axes in the accelerometer with 6 bit resolution so 6 X 3 = 18 bits p
 
 Accounting for the number of seconds in a day, the user will generate 72 X 60 X 60 X 24 = 6,220,800 bytes/day or 6.22 Mb over the course of an entire day. This can easily be saved on an iPhone without any appreciable loss of phone memory and sent over LTE or Wifi. The data can also be saved on the phone and uploaded to server in pieces over the course of the day.
 
-Moreover, Apple and Fitbit have the resources to collect much larger datasets with their devices with more activities that the one used for this study (potentially far more embarassing and private activities). They probably know with a fair degree of accuracy what you're doing every minute of ever day. You should probably take it off when you don't need it. 
+Moreover, Apple and Fitbit have the resources to collect much larger datasets with their devices with more activities than the one used for this study (potentially far more embarassing and private activities). They probably know with a fair degree of accuracy what you're doing every minute of ever day. You should probably take it off when you don't need it. 
