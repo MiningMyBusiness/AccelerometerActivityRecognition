@@ -29,7 +29,7 @@ For more information about the data please visit the [repository](https://archiv
 ## The classifier
 Using the raw data for each activity, I performed the following processing and machine learning tasks
 
-1) split the data into 5 second time windows - 160 time points by 3 axes for a total of 4954 time windows each with a label - with 2 seconds of overlap 
+1) split the data into 5 second time windows with 2 seconds of overlap - 160 time points by 3 axes for a total of 4954 time windows each with a label of the activity represented by that window.  
 
 2) normalize the data so it ranges between 0-1. 
 
