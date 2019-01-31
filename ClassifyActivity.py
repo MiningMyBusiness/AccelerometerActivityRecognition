@@ -26,7 +26,7 @@ allFiles = glob.glob('*')
 # get only the files that have data
 dataFolders = []
 for file in allFiles:
-    if '.m' not in file and '.txt' not in file and '.py' not in file:
+    if '.m' not in file and '.txt' not in file and '.py' not in file and '.png' not in file:
         dataFolders.append(file)
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -104,7 +104,7 @@ encoded_dim = 128
 
 input_data = Input(shape=(maxLen, bigArray.shape[1]))
 
-x = Conv1D(100, 10, activation='relu', padding='same')(input_data)
+x = Conv1D(100, 3, activation='relu', padding='same')(input_data)
 x = AveragePooling1D()(x)
 x = Conv1D(128, 3, activation='relu', padding='same')(x)
 x = AveragePooling1D()(x)
@@ -121,13 +121,14 @@ encoder = Model(input_data, encoded)
 y = Dense(256, activation='relu')(encoded)
 y = Dense(1000, activation='relu')(y)
 y = Reshape((20,50))(y)
-y = Conv1D(100, 10, activation='relu', padding='same')(y)
+y = Conv1D(50, 3, activation='relu', padding='same')(y)
+y = Conv1D(100, 3, activation='relu', padding='same')(y)
 y = UpSampling1D()(y)
-y = Conv1D(128, 10, activation='relu', padding='same')(y)
+y = Conv1D(128, 3, activation='relu', padding='same')(y)
 y = UpSampling1D()(y)
-y = Conv1D(100, 10, activation='relu', padding='same')(y)
+y = Conv1D(100, 3, activation='relu', padding='same')(y)
 y = UpSampling1D()(y)
-decoded = Conv1D(3, 10, activation='sigmoid', padding='same')(y)
+decoded = Conv1D(3, 3, activation='sigmoid', padding='same')(y)
 
 
 # create autoencoder network
@@ -151,7 +152,7 @@ propTest = 0.2
 nTrain = int((1-propTest)*nSamples)
 
 autoencoder.fit(activityWindows[0:nTrain,:,:], activityWindows[0:nTrain,:,:],
-                epochs=30,
+                epochs=60,
                 batch_size=32,
                 shuffle=True,
                 validation_data=(activityWindows[nTrain:,:,:], activityWindows[nTrain:,:,:]))
@@ -288,5 +289,5 @@ plt.yticks(np.arange(num_classes),
             rotation=0)
 plt.title('Confusion matrix')
 plt.tight_layout()
-plt.savefig('Figures/ConfusionMatrix.png')
+plt.savefig('ConfusionMatrix.png')
 plt.close()
