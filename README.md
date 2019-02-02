@@ -67,3 +67,12 @@ There are 3 axes in the accelerometer with 6 bit resolution so 6 X 3 = 18 bits p
 Accounting for the number of seconds in a day, the user will generate 72 X 60 X 60 X 24 = 6,220,800 bytes/day or 6.22 Mb over the course of an entire day. This can easily be saved on an iPhone without any appreciable loss of phone memory and sent over LTE or Wifi. The data can also be saved on the phone and uploaded to server in pieces over the course of the day.
 
 Moreover, Apple and Fitbit have the resources to collect much larger datasets with their devices with more activities than the one used for this study (potentially far more embarassing and private activities). They probably know with a fair degree of accuracy what you're doing every minute of ever day. You should probably take it off when you don't need it. 
+
+## Executing the scary part
+We can expand this dataset in two ways to build a system that might resemble what Apple and Fitbit may need to actually keep track of your daily activites: 
+
+1) We can stitch the time-series data for some of these activities in a sequence and see how well a activity classifier combined with a recursive Bayesian estimator can figure out the sequence in real-time as the sequence in presented and also after an entire sequence is provided. This can be used to compare accuracies of online activity analyses with offline analyses. 
+
+2) We can add noise to the time-series data to see how accuracy is influenced by addition of noise. 
+
+3) We can superimpose the time-series of some of these activites to see how well the activity classifier deals with instances where someone was doing two activities at once, like brushing their teeth and walking at the same time.
