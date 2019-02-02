@@ -69,7 +69,7 @@ Accounting for the number of seconds in a day, the user will generate 72 X 60 X 
 Moreover, Apple and Fitbit have the resources to collect much larger datasets with their devices with more activities than the one used for this study (potentially far more embarassing and private activities). They probably know with a fair degree of accuracy what you're doing every minute of ever day. You should probably take it off when you don't need it. 
 
 ## Executing the scary part
-We can expand this dataset in two ways to build a system that might resemble what Apple and Fitbit may need to actually keep track of your daily activites: 
+We can expand this dataset in three ways to build a system that might resemble what Apple and Fitbit may need to actually keep track of your daily activites: 
 
 1) We can stitch the time-series data for some of these activities in a sequence and see how well a activity classifier combined with a recursive Bayesian estimator can figure out the sequence in real-time as the sequence in presented and also after an entire sequence is provided. This can be used to compare accuracies of online activity analyses with offline analyses. 
 
