@@ -78,5 +78,10 @@ We can expand this dataset in three ways to build a system that might resemble w
 3) We can add noise to the time-series data to see how accuracy is influenced by addition of noise. 
 
 ### Dealing with noise 
-Let's start by doing the easiest of these and seeing how the classifier deals with noise. Since the classification is really being done with the encoded 128 dimensional data. Let's see how well the encoder decoder network reconstructs a signal fed into it with added noise. 
+Let's start by doing the easiest of these and seeing how the classifier deals with noise. Since the classification is really being done with the encoded 128 dimensional data. Let's see how well the encoder-decoder network reconstructs a signal fed into it with added noise. 
 
+<img src="https://github.com/MiningMyBusiness/AccelerometerActivityRecognition/raw/master/Figures/RealSignal.png" width="400"><img src="https://github.com/MiningMyBusiness/AccelerometerActivityRecognition/raw/master/Figures/NoiseSignal.png" width="400"><img src="https://github.com/MiningMyBusiness/AccelerometerActivityRecognition/raw/master/Figures/RealSignal_recon.png" width="400"><img src="https://github.com/MiningMyBusiness/AccelerometerActivityRecognition/raw/master/Figures/NoiseSignal_recon.png" width="400">
+
+Above we can see a real signal and a noisy signal with added Gaussian noise with mean of 0 and standard deviation of 0.05. The reconstructions of the real and noisy signal from the encoder-decoder network look pretty similar. In fact, the reconstructions of the noisy signals from the encoder-decoder network have R-squared values of (0.93, 0.82, 0.89) for each axis when compared to the real signals. These R-squared values are only slightly lower than those for the reconstructions of the real signals.
+
+In fact, even if we increase the standard deviation of the added noise by 2X to 0.1, the R-squared values of reconstructions from noisy signals are still (0.91, 0.78, 0.87). This is noticably lower but still agrees quite well with the R-squared values for the reconstructions of the real signals. Therefore, the fact that the encoder network makes up the bottom of the classifier makes it more resilient to noisy inputs. 
