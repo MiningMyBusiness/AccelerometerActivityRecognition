@@ -73,6 +73,10 @@ We can expand this dataset in three ways to build a system that might resemble w
 
 1) We can stitch the time-series data for some of these activities in a sequence and see how well a activity classifier combined with a recursive Bayesian estimator can figure out the sequence in real-time as the sequence in presented and also after an entire sequence is provided. This can be used to compare accuracies of online activity analyses with offline analyses. 
 
-2) We can add noise to the time-series data to see how accuracy is influenced by addition of noise. 
+2) We can superimpose the time-series of some of these activites to see how well the activity classifier deals with instances where someone was doing two activities at once, like brushing their teeth and walking at the same time.
 
-3) We can superimpose the time-series of some of these activites to see how well the activity classifier deals with instances where someone was doing two activities at once, like brushing their teeth and walking at the same time.
+3) We can add noise to the time-series data to see how accuracy is influenced by addition of noise. 
+
+### Dealing with noise 
+Let's start by doing the easiest of these and seeing how the classifier deals with noise. Since the classification is really being done with the encoded 128 dimensional data. Let's see how well the encoder decoder network reconstructs a signal fed into it with added noise. 
+
